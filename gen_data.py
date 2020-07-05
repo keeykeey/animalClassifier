@@ -19,3 +19,14 @@ for index,class in enumerate(classes):
         image = Image.open(file)
         image = Image.convert('RGB')
         image = Image.resize(image_size)
+        data = np.asarray(image)
+        X.append(data)
+        X=np.array(X)
+        Y = np.array(Y)        
+        Y.append(index)#0,1,2
+        
+
+X = np.array(X)
+Y = np.array(y)
+
+
