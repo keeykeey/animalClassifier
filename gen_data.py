@@ -11,22 +11,17 @@ image_size = 50
 
 X = []
 Y = []
-for index,class in enumerate(classes):
-    photos_dir = "./" + class
+for index,classLabel in enumerate(classes):
+    photos_dir = "./" + classLabel
     files = glob.glob(photos_dir + '/*.jpg')
     for i,file in enumerate(files):
         if i >= 200:break
         image = Image.open(file)
-        image = Image.convert('RGB')
-        image = Image.resize(image_size)
+        image = image.convert('RGB')
+        image = image.resize((image_size,image_size))
         data = np.asarray(image)
         X.append(data)
-        X=np.array(X)
-        Y = np.array(Y)        
         Y.append(index)#0,1,2
         
-
 X = np.array(X)
-Y = np.array(y)
-
-
+Y = np.array(Y)
