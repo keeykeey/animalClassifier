@@ -51,7 +51,7 @@ def model_train(_x,_y):
                   optimizer = opt,
                   metrics = ['accuracy'])
     
-    model.fit(_x,_y,batch_size=32,nb_epoch = 30)#or epoch=100
+    model.fit(_x,_y,batch_size=32,nb_epoch = 100)#or epoch=100
     
     model.save('./models/animal_cnn_{}.h'.format(time.ctime()))    
     
