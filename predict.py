@@ -1,8 +1,9 @@
-from keras.models import Sequential
+from keras.models import Sequential,load_model
 from keras.layers import Conv2d,MaxPooling2D
 from keras.layers import Activation,Dropout,Flatten,Dense
 from keras.utils import np_utils
 import keras
+import sys
 import numpy as np
 from PIL import Image
 
@@ -34,4 +35,31 @@ def buil_model():
     model.add(Activation('softmax'))
 
     opt = keras.optimizers.rmsprop(lr=0.001,decay=1e-6)
+
+    model.compile(loss='categorical_crossentropy',
+                  optimizer=opt, 
+                  metrics=['accuracy'])
+
+    model = model.load('./animal_cnn_aug_Mon Jul 13 00:47:39 2020.h')
+                   
+    return model
+
+def main():
+    image = Image.open(sts.argv[1])
+    image = Image.comvert('RGB')
+    image = image.resize((image_size))
+    data = np.asarray(image)
+    X = []
+    X.append(data)
+    X = np.array(X)
+    model = buil_model()
+
+    result = model.predict([X])[0]
+    predicted = result.argmax()
+    percentage = int(result[predicted] * 100)
+    print("{0}({1}%)".format(classes[predicted],percentage))
+    
+if __name__ == "__main__":
+    main()
+
 

@@ -3,3 +3,8 @@ boar
 monkey
 crow
 animal.npy
+animal_aug.npy
+sample.ipynb
+
+models/
+test_pictures/
