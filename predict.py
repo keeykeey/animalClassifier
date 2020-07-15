@@ -15,7 +15,7 @@ def buil_model():
     model = Sequential()
     model.add(Conv2D(32,(3,3),padding = 'same',input_size=(50,50,3)))
     model.add(Activation('relu'))
-    model.add(Conv2D(32,(3,3))
+    model.add(Conv2D(32,(3,3)))
     model.add(Activation('relu'))
     model.add(MaxPooling2D(pool_size = (2,2)))
     model.add(Dropout(0.25))
@@ -29,7 +29,7 @@ def buil_model():
 
     model.add(Flatten())
     model.add(Dense(512))
-    model.add(Activation('relu')
+    model.add(Activation('relu'))
     model.add(Dropout(0.5))
     model.add(Dense(3))
     model.add(Activation('softmax'))
@@ -45,7 +45,7 @@ def buil_model():
     return model
 
 def main():
-    image = Image.open(sts.argv[1])
+    image = Image.open(sys.argv[1])
     image = Image.comvert('RGB')
     image = image.resize((image_size))
     data = np.asarray(image)
