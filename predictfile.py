@@ -3,8 +3,8 @@ from flask import Flask,request,redirect,url_for,flash
 from werkzeug.utils import secure_filename
 from flask import render_template
 
-UPLOAD_FOLDER = './uploads'
-AllOWED_EXTENSIONS = set(['png','jpg','gif'])
+UPLOAD_FOLDER = './uploaded_file'
+ALLOWED_EXTENSIONS = set(['png','jpg','gif'])
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
