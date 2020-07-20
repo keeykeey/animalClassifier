@@ -1,6 +1,7 @@
 import os
 from flask import Flask,request,redirect,url_for,flash
 from werkzeug.utils import secure_filename
+from flask import render_template
 
 UPLOAD_FOLDER = './uploads'
 AllOWED_EXTENSIONS = set(['png','jpg','gif'])
@@ -17,7 +18,9 @@ def upload_file():
         if 'file' not in request.files:
             flash('No file found')
             return redirect(request.url)
+
         file = request.files['file']
+
         if file.filename =='':
             flash('No file found')
             return redirect(request.url)
@@ -25,25 +28,14 @@ def upload_file():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
             return redirect(url_for('uploaded_file',filename=filename))
-    return '''
-    <!doctype html>
-    <html>
-    <head>
-    <meta charset='UTF-8'>
-    <title>Upload the file and predict</title></head>
-    <body>
-    <h1>Upload the file and predict</h1>
-    <form method = post enctype = multipart/form-data>
-    <p><input type=file name=file>
-    <input type=submit value=Upload>
-    </form>
-    </body>
-    </html>
-    ''' 
+
+#    with open('./index.html') as f:
+#        html_text = f.read()
+    return render_template('./index.html') 
 
 from flask import send_from_directory
 
-@app.route('/uploads/<filename>')
+@app.route('/uploaded_file/<filename>')
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'],filename)    
 
