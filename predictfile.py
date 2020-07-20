@@ -29,9 +29,9 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
             return redirect(url_for('uploaded_file',filename=filename))
 
-#    with open('./index.html') as f:
-#        html_text = f.read()
-    return render_template('./index.html') 
+    with open('./index.html') as f:
+        html_text = f.read()
+    return html_text
 
 from flask import send_from_directory
 
