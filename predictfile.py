@@ -2,6 +2,14 @@ import os
 from flask import Flask,request,redirect,url_for,flash
 from werkzeug.utils import secure_filename
 from flask import render_template
+from keras.models import load_model
+import sys,keras
+import numpy as np
+from PIL import Image
+
+classes = ['monkey','boar','crow']
+num_classes = len(classes)
+image_size = 50
 
 UPLOAD_FOLDER = './uploaded_file'
 ALLOWED_EXTENSIONS = set(['png','jpg','gif'])
@@ -27,11 +35,26 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
-            return redirect(url_for('uploaded_file',filename=filename))
+            #return redirect(url_for('uploaded_file',filename=filename))
+            filepath = os.path.join(app.config['UPLOAD_FOLDER'],filename)
+    
+            model = load_model('./models/animal_cnn_aug_Mon Jul 13 00:47:39 2020.h')
 
-    with open('./index.html') as f:
-        html_text = f.read()
-    return html_text
+            image = Image.open(filepath)
+            image = image.convert('RGB')
+            image = image.resize((image_size,image_size))
+            data = np.asarray(image)
+            _x = []
+            _x.append(data)
+            _x = np.array(_x) 
+            
+            result = model.predict([_x])[0]
+            predicted = result.argmax()
+            percentage = int(result[predicted]) * 100
+            
+            return classes[predicted] + ' ' + str(percentage) + '%' 
+
+    return render_template('index.html')
 
 from flask import send_from_directory
 
