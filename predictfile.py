@@ -52,9 +52,13 @@ def upload_file():
             predicted = result.argmax()
             percentage = int(result[predicted]) * 100
             
-            return classes[predicted] + ' ' + str(percentage) + '%' 
+            return 'The image may be {}.  In {}%'.format(classes[predicted],str(percentage))
 
     return render_template('index.html')
+
+@app.route('/animal_classifier.html',methods=['GET','POST'])
+def animal_classifier():
+    return render_template('animal_classifier.html')
 
 from flask import send_from_directory
 
