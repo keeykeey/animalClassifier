@@ -2,6 +2,7 @@
     <head>
     <meta charset='UTF-8'>
     <title>Upload the file</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"> 
 </head>
 <body>
     <div>
@@ -10,19 +11,18 @@
         </header>
         <p>AIを生活の一部に</p><p>退屈な仕事はコンピュータにアウトソースしてみませんか？</p>
 
-        <nav>
+        <nav class='notified'>
             <ul>
                 <li><a href = 'animal_classifier.html'>Animal classifier</a> 〜畑を荒らされる前に、対策をとりましょう。</li>
                 <li>topic2</li>
                 <li>topic3</li>
                 <li>topic4</li>
             </ul>
+        </nav>
+        <nav>
+            <h3><a href = '/'><img src='static/images/top_image.jpeg' alt = "Shin Fujit's portfolio"></a>
+        </nav>
 
-        <h3>ファイルをアップロード</h3>
-            <form method=post enctype = 'multipart/form-data'>
-            <p><input type=file name=file>
-            <input type=submit value=Upload>
-            </form>
     </div>
 </body>
 </html>
