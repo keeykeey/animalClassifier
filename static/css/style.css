@@ -1,13 +1,76 @@
 @charset "UTF-8";
 
+html * {
+    box-sizing:border-box;
+    font-size: 100%;
+}
+
+.page-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper{
+    max-width: 1100px;
+    margin: 0 auto;
+}
+    
+.logo{
+    width: 70px;
+    margin-top: 0px;
+}
+
+.main-nav{
+    display: flex;
+    font-size:1.15rem;
+    text-transform: uppercase;
+    margin-top: 35px;
+    list-style: none;
+}
+
+
+
+p{
+    line-height: 0.5;
+}
+
 body{
     background-color: #dddddd;
-    font-family: sans-serif;
+    font-family: 'Yu Gothic Mediam";
     font-size:18px;
 }
 
-.notified{
-    background-color: #f6f0cc;
-    fonr-family: sams-serif;
-    font-size:10px:
+.top-img{
+    width: 3100;
+    height: 200; 
+    max-width: 200%;
 }
+
+li{
+    display: inline;
+    list-style-type:none;
+    padding-right:30px;
+}
+
+a:link{
+    color: #d25833;
+}
+a:visited{
+    color: #d25833:
+}
+a:hover{
+    color: #e3937a;
+}
+a:active{
+    color:#ff6a3b ;
+}
+
+
+h2{
+    background-color: #dddddd;
+    fonr-family: sams-serif;
+    font-size:20px;
+}
+
+
+

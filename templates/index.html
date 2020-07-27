@@ -1,26 +1,33 @@
 <html lang='ja'>
     <head>
     <meta charset='UTF-8'>
-    <title>Upload the file</title>
+    <title>Shin Fujito</title>
     <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"> 
 </head>
 <body>
     <div>
-        <header>
-            <h3><a href ='/'><img src="static/images/logo4.png" alt="Shin Fujito's portfolio"></a></h3>
+        <header class="page-header wrapper">
+            <h3><a href ='/'><img class='logo' src="static/images/logo4.png" alt="Shin Fujito's portfolio"></a></h3>
+            <nav>
+                <ul class='main-nav'>
+                    <li><a href = ''>About</a></li>
+                    <li><a href = ''>Biography</li>
+                    <li><a href = ''>Works</li>
+                    <li><a href = ''>Contact</li>
+                </ul>
+            </nav>
         </header>
-        <p>AIを生活の一部に</p><p>退屈な仕事はコンピュータにアウトソースしてみませんか？</p>
-
+        <nav>
+            <h3 class='top-img'><a href = '/'><img src='static/images/top_image.jpg' alt = "Shin Fujit's portfolio"></a>
+        </nav>
         <nav class='notified'>
             <ul>
-                <li><a href = 'animal_classifier.html'>Animal classifier</a> 〜畑を荒らされる前に、対策をとりましょう。</li>
+                <h2 class='notified'>my works</h2>
+                <li><a href = 'animal_classifier.html'>Animal classifier</a></li>
                 <li>topic2</li>
                 <li>topic3</li>
                 <li>topic4</li>
             </ul>
-        </nav>
-        <nav>
-            <h3><a href = '/'><img src='static/images/top_image.jpeg' alt = "Shin Fujit's portfolio"></a>
         </nav>
 
     </div>
