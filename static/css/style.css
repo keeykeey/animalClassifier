@@ -94,17 +94,31 @@ a:active{
     background-color:#eeeeee;
 }
 
-.animal-classifier{
-    display:flex;
-    flex-direction:column;  
+.works-text{
+    text-align:center;
+    border-top:20px;
+    border-buttom:20px;
 }
 
 .works-img{
-    height:30%;
-    width:30%;
+    display:block;
+    width:40%;
     background-color:#ffffff;
+    border:10px;
+    margin-left:auto;
+    margin-right:auto;
+    padding:10px;
 }
 
+.works-row{
+    display:flex;
+    flex-direction:row:
+}
+
+.works-col{
+    display:flex;
+    flex-direction:column;
+}
 
 h2{
     background-color: #dddddd;
