@@ -5,19 +5,19 @@
     <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"> 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
    
-    <!--<script src="{{url_for('static',filename='js/scroll.js')}}" defer></script>-->
-    <script src="static/js/scroll.js" defer></script>
+    <script src="{{url_for('static',filename='js/scroll.js')}}" defer></script>
     
 </head>
 <body>
     <header class="page-header wrapper">
         <h1><a href ='/'><img class='logo' src="static/images/logo4.png" alt="Shin Fujito's portfolio"></a></h1>
         <nav>
+            <!--<ul class='header-navigator'>-->
             <ul class='header-navigator'>
-                <li><a href = ''>About</a></li>
-                <li><a href = ''>Biography</li>
-                <li><a href = ''>Works</li>
-                <li><a href = ''>Contact</li>
+                <li><a href = '#about'>About</a></li>
+                <li><a href = '#skills'>Skills</a></li>
+                <li><a href = '#works'>Works</a></li>
+                <li><a href = '#contact'>Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -27,26 +27,96 @@
     </div>
 
     <main>
-        <h2><a href =''>About</a></h2>
-            <p>text</p>
-            <p>過去の作品は<a href=''>こちら</a>から</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
+        <h2 class='main-topic' id='about'>About</a></h2>
+            <table class = table>
+                <thead>
+                    <tr>
+                        <th> 西暦</th>
+                        <th> 会社</th>
+                        <th> 説明</th>
+                    </tr>
+                    <tr>
+                        <td>2012~2013</td>
+                        <td>SUISHAYA-ADVANCE</td>
+                        <td class='long-td'>接客を通じ、お客様に快適なパチンコ遊戯体験を提供</td>
+                    </tr>
+                    <tr>
+                        <td>2014~2015</td>
+                        <td>アルバイト</td>
+                        <td class='long-td'>ASKULの物流倉庫にて、積荷等の業務</td>
+                    </tr>
+                    <tr>
+                        <td>2015~2017</td>
+                        <td>東京都（都立松沢病院）</td>
+                        <td class='long-td'>主に給与、労務等の庶務事務を担当</td>
+                    </tr>
+                    <tr>
+                        <td>2018~2020</td>
+                        <td>東京都（病院経営本部）</td>
+                        <td class='long-td'>1 都立病院独法化後の給与制度の設計・シミュレーション
+                             <br>2 庶務事務全体の業務フロー検討と独法法人の庶務系システムの総調達</td>
+                    </tr>
+                </thead>
+            </table>
 
-        <h2>Biography</h2>
+
+            <p>現在機械学習エンジニアへの転職活動中です。</p>
+            <p class='text'>今までの作成物は<a href='#works'>こちら(Works)</a>からご覧ください。</p>
+
+        <h2 class='main-topic' id='skills'>Skills</h2>
+            <h3>プログラミング</h3>
+            <table class = table>
+                <thead>
+                    <tr>
+                        <th> 言語</th>
+                        <th> 年数</th>
+                        <th> 説明</th>
+                    </tr>
+                    <tr>
+                        <td>python</td>
+                        <td>2年</td>
+                        <td class='long-td'>接客を通じ、お客様に快適なパチンコ遊戯体験を提供</td>
+                    </tr>
+                    <tr>
+                        <td>R</td>
+                        <td>1年未満</td>
+                        <td class='long-td'>ASKULの物流倉庫にて、積荷等の業務</td>
+                    </tr>
+                    <tr>
+                        <td>javascript</td>
+                        <td>1年未満</td>
+                        <td class='long-td'>主に給与、労務等の庶務事務を担当</td>
+                    </tr>
+                    <tr>
+                        <td>typescript</td>
+                        <td>1年未満</td>
+                        <td class='long-td'>主に給与、労務等の庶務事務を担当</td>
+                    </tr>
+                    <tr>
+                        <td>C言語</td>
+                        <td>1年未満</td>
+                        <td class='long-td'>主に給与、労務等の庶務事務を担当</td>
+                    </tr>
+                    <tr>
+                        <td>VBA</td>
+                        <td>2年</td>
+                        <td class='long-td'>主に給与、労務等の庶務事務を担当</td>
+                    </tr>
+                </thead>
+            </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
             <p>text</p>
             <p>text</p>
             <p>text</p>
@@ -59,35 +129,18 @@
             <p>text</p>
             <p>text</p>
             <p>text</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-        <h2>Works</h2>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
-            <p>text</p>
+        <h2 class='main-topic' id='works'>Works</h2>
             <p>text</p>
         <nav class='notified'>
             <ul>
                 <li><a href = 'animal_classifier.html'>Animal classifier</a></li>
-                <li><a href = ''>topic2</a></li>
+                <li><a href = 'tech_article.html'>Tech Articles</a></li>
                 <li><a href = ''>topic3</a></li>
                 <li><a href = ''>topic4</a></li>
             </ul>
         </nav>
 
-        <h2>Contact</h2>
+        <h2 id='contact'>Contact</h2>
             <p>text</p>
             <p>text</p>
             <p>text</p>
@@ -105,17 +158,18 @@
             <p>text</p>
     <main>
 
-    <footer>
-        <nav>
-            <ul>
-                <li><a href=''>About</a></li>
-                <li><a href=''>Biography</a></li>
-                <li><a href=''>Works</a></li>
-                <li><a href=''>Contact</a></li>
-            </ul>
-        </nav>
-    
-        <p>copy right</p>
+    <footer  id='footer'>
+        <div class='inner'>
+            <nav>
+                <ul>
+                    <li><a class='inner' href='#about'>About</a></li>
+                    <li><a class='inner' href='#skills'>Skills</a></li>
+                    <li><a class='inner' href='#works'>Works</a></li>
+                    <li><a class='inner' href='#contact'>Contact</a></li>
+                </ul>
+            </nav>
+            <p class='copyright'>Copyright&copy;Shin Fujito. All Rights Reserved.</p>
+        </div>
         <div id='page_top'><a href='#'></a>
 
 
