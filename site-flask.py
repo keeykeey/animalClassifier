@@ -27,7 +27,15 @@ def return_topPage():
 
 @app.route('/contact.html',methods=['GET','POST'])
 def return_contactPage():
+    if request.method == 'POST':
+        return render_template('result.html') 
+
     return render_template('contact.html')
+
+@app.route('/result.html',methods=['GET','POST'])
+def return_resultPage():
+    return render_template('result.html')
+
 
 @app.route('/animal_classifier.html',methods=['GET','POST'])
 def upload_file():
