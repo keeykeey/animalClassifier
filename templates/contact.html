@@ -1,0 +1,56 @@
+<html lang='ja'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Shin Fujito</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+   
+    <script src="{{url_for('static',filename='js/scroll.js')}}" defer></script>
+    
+</head>
+<body>
+    <header class="page-header wrapper">
+        <h1><a href ='/'><img class='logo' src="static/images/penguinBig.png" alt="Shin Fujito's portfolio"></a></h1> 
+        <nav>
+            <!--<ul class='header-navigator'>-->
+            <ul class='header-navigator'>
+                <li><a href = '/'>home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--
+    <div>
+        <img class='contact-top-img' src='static/images/seaGullBlack.png' alt = "Shin Fujit's portfolio" />
+    </div>
+    -->
+
+    <main>
+        <h1 class='main-topic'>Contact</h1>
+        <p>件名</p>
+        <input type='text' name='subject' placeholder=''>
+        <p>内容</p>
+        <textarea name='message'></textarea>
+        <input class='send-form' type='submit' name='submit' value='送信'>        
+    </main>
+
+    <footer  id='footer'>
+        <div class='inner'>
+            <nav>
+                <ul>
+                    <li><a class='inner' href='#about'>About</a></li>
+                    <li><a class='inner' href='#skills'>Skills</a></li>
+                    <li><a class='inner' href='#works'>Works</a></li>
+                    <li><a class='inner' href='#contact'>Contact</a></li>
+                </ul>
+            </nav>
+            <p class='copyright'>Copyright&copy;Shin Fujito. All Rights Reserved.</p>
+        </div>
+        <div id='page_top'><a href='#'></a>
+
+
+    </footer>
+
+</body>
+</html>
+

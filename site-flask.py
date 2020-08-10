@@ -25,6 +25,10 @@ def allowed_file(filename):
 def return_topPage():
     return render_template('index.html')
 
+@app.route('/contact.html',methods=['GET','POST'])
+def return_contactPage():
+    return render_template('contact.html')
+
 @app.route('/animal_classifier.html',methods=['GET','POST'])
 def upload_file():
     if request.method == 'POST':
