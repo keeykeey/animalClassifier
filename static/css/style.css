@@ -7,18 +7,24 @@ html * {
 }
 
 .page-header{
-    display: flex;
-    justify-content: space-between;
+/*    justify-content: space-between;*/
     padding:0px;
     margin:0px;
     border:0px; 
+}
+
+.fix{
+    display:flex;
+    position:fixed;
+    background-color:#666666;
+    width:100%;
 }
 
 .logo{
     background-color:#ffffff;
     width:60px;
     margin-top: 0px;
-    margin-left:0px;
+    margin-left:1px;
     margin-right:auto;
     margin-bottom:0px;
     border:0px;
@@ -26,11 +32,12 @@ html * {
 }
 
 .header-navigator{
-    display: flex;
     font-size:1.5rem;
     text-transform: uppercase;
     margin-top: 30px;
     margin-bottom: 0px;
+    margin-left:auto;
+    margin-right:0px;
     list-style: none;
 }
 
@@ -38,7 +45,7 @@ html * {
     width:100%;
     height:70%;
     padding:0px;
-    margin:0px;
+    margin-top:100px;
     border:0px;
 }
 
@@ -59,8 +66,9 @@ p{
 }
 
 body{
+    margin:0;
     background-color: #dddddd;
-    /* font-family: 'Yu Gothic Mediam";*/
+    font-family: 'Yu Gothic Mediam';
     font-size:18px;
 }
 
