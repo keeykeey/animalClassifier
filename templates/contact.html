@@ -5,11 +5,11 @@
     <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"> 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
    
-    <script src="{{url_for('static',filename='js/scroll.js')}}" defer></script>
+    <script src="{{url_for('static',filename='js/contact.js')}}" defer></script>
     
 </head>
 <body>
-    <header class="page-header wrapper">
+    <header class="page-header">
         <h1><a href ='/'><img class='logo' src="static/images/penguinBig.png" alt="Shin Fujito's portfolio"></a></h1> 
         <nav>
             <!--<ul class='header-navigator'>-->
@@ -26,12 +26,14 @@
     -->
 
     <main>
-        <h1 class='main-topic'>Contact</h1>
-        <p>件名</p>
-        <input type='text' name='subject' placeholder=''>
-        <p>内容</p>
-        <textarea name='message'></textarea>
-        <input class='send-form' type='submit' name='submit' value='送信'>        
+        <form method = 'post'>
+            <h1 class='main-topic'>Contact</h1>
+            <p>件名</p>
+            <input type='text' name='subject' placeholder=''>
+            <p>内容</p>
+            <textarea name='message' id='message'></textarea>
+            <input class='send-form' type=submit name='submit' value='送信' method='POST'>        
+        </form>
     </main>
 
     <footer  id='footer'>

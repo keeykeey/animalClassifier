@@ -1,0 +1,61 @@
+<html lang='ja'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Shin Fujito</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+</head>
+<body>
+    <header class="page-header wrapper">
+        <h1>入力内容の確認</h1>
+    </header>
+
+    <main>
+        <table class='table'>
+            <thead>
+                <tr>
+                    <th>項目</th>
+                    <th>入力内容</th>
+                </tr>
+                <tr>
+                    <td>件名</td>
+                    <td>
+                        {% for subject in request.form['subject'] %}
+                            {{subject}}
+                        {% endfor %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>内容</td>
+                    <td>
+                        {% for message in request.form['message'] %}
+                            {{message}}
+                        {% endfor %}
+                    </td>
+                </tr>
+            </thead>
+        </table>                 
+    </main>
+
+    <p><a href='contact.html'>入力ページに戻る</a></p>
+
+    <footer  id='footer'>
+        <div class='inner'>
+            <nav>
+                <ul>
+                    <li><a class='inner' href='#about'>About</a></li>
+                    <li><a class='inner' href='#skills'>Skills</a></li>
+                    <li><a class='inner' href='#works'>Works</a></li>
+                    <li><a class='inner' href='#contact'>Contact</a></li>
+                </ul>
+            </nav>
+            <p class='copyright'>Copyright&copy;Shin Fujito. All Rights Reserved.</p>
+        </div>
+        <div id='page_top'><a href='#'></a>
+
+
+    </footer>
+
+</body>
+</html>
+

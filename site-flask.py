@@ -28,7 +28,8 @@ def return_topPage():
 @app.route('/contact.html',methods=['GET','POST'])
 def return_contactPage():
     if request.method == 'POST':
-        return render_template('result.html') 
+        result = request.form
+        return render_template('confirm.html') 
 
     return render_template('contact.html')
 
