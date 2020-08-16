@@ -74,6 +74,9 @@ def upload_file():
 
     return render_template('animal_classifier.html')
 
+@app.route('/playball',methods=['GET','POST'])
+def return_playball():
+    return render_template('play_with_ball.html')
 
 from flask import send_from_directory
 
