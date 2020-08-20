@@ -4,11 +4,11 @@ uploadedPicture.addEventListener('dragstart',() =>{
     console.log('dragstart event');
 });
 
-character.addEventListener('drag',() => {
+uploadedPicture.addEventListener('drag',() => {
     console.log('drag event');
 });
 
-character.addEventListener('dragged',() => {
+uploadedPicture.addEventListener('dragged',() => {
     console.log('dragend event');
 });    
 
