@@ -11,13 +11,16 @@ html * {
     padding:0px;
     margin:0px;
     border:0px; 
+    display:flex;
 }
 
 .fix{
     display:flex;
     position:fixed;
     background-color:#666666;
+    opacity:90%;
     width:100%;
+    height:84px
 }
 
 .logo{
@@ -32,7 +35,8 @@ html * {
 }
 
 .header-navigator{
-    font-size:1.5rem;
+    font-size:1.4rem;
+    font-weight:bold;
     text-transform: uppercase;
     margin-top: 30px;
     margin-bottom: 0px;
@@ -45,7 +49,7 @@ html * {
     width:100%;
     height:70%;
     padding:0px;
-    margin-top:100px;
+    margin-top:84px;
     border:0px;
 }
 
@@ -106,6 +110,7 @@ a:active{
     border-collasp:collaspe;
 }
 
+
 .table th, .table td{
     padding:8px;
     border:1px solid #bec2c7;
@@ -113,6 +118,7 @@ a:active{
     vertical-align:center;
     background-color:#eeeeee;
 }
+
 
 .works-text{
     text-align:center;
@@ -172,6 +178,7 @@ h2{
   background: #ef3f98;
   opacity: 0.6;
   border-radius: 15px;
+  font-weight:bold;
 }
 #page_top a{
   position: relative;
