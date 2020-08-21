@@ -2,6 +2,7 @@
     <head>
     <meta charset='UTF-8'>
     <title>Upload the file</title>
+    <link rel='stylesheet' href="{{url_for('static',filename='css/animal_classifier.css')}}">
     <script src="{{url_for('static',filename='js/animal_classifier.js')}}" defer></script>
 </head>
 <body>
@@ -14,8 +15,10 @@
         <p><input type=file name=file>
         <input type=submit value=Upload>
     </form>
-    <div class='uploaded' draggable='true'</div>
-    <div class='box'>ここにドラッグ</div>
+    <div class='uploaded' draggable='true'>
+        <img src='static/images/logo4.png' alt='missing'>
+    </div>
+    <div class='file-zone'>ここにドラッグ</div>
  
     <div class='file-preview-area'>
         <h3>アップロードした画像</h3>
