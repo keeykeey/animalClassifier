@@ -11,11 +11,12 @@ WAITTIME = 1
 #save directories
 animalName = sys.argv[1]
 saveDir = "./" + animalName
+saveDirGCS = "./" + animalName
 
 flickr = FlickrAPI(KEY,SECRET_KEY,format = 'parsed-json')
 result = flickr.photos.search(
     text = animalName,
-    per_page = 400,
+    per_page = 10,
     media = 'photos',
     sort = 'relevance',
     safe_search = 1,
@@ -38,6 +39,7 @@ for i,photo in enumerate(photos['photo']):
 cloudStorageBucketName = 'real_or_picture'
 for i,photo in enumerate(photos['photo']):
     url_q = photo['url_q']
-    filepath = 
-
-
+    filepath = saveDirGCS +'/' +  photo['id'] + '.jpg'
+  # if os.system("gsutil")
+    os.system("gsutil cp {} gs://{}".format(url_q,filepath))
+    time.sleep(WAITTIME) 
