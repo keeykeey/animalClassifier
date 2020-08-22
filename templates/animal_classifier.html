@@ -7,18 +7,18 @@
 </head>
 <body>
     <header>
-        <h3><a href ='/'><img src="static/images/logo4.png" alt="Shin Fujito's portfolio"></a></h3>
+        <h3><a href ='/'><img class='top-img' src="static/images/robotBig.png" alt="Shin Fujito's portfolio"></a></h3>
+        <p class='top-text'>ファイルを選択又はアップロードして下さい</p>
     </header>
 
-    <h2>ファイルをアップロード</h2>
     <form method=post enctype = 'multipart/form-data'>
         <p><input type=file name=file>
         <input type=submit value=Upload>
     </form>
-    <div class='uploaded' draggable='true'>
+    <!--<div class='uploaded' draggable='true'>
         <img src='static/images/logo4.png' alt='missing'>
-    </div>
-    <div class='file-zone'>ここにドラッグ</div>
+    </div>-->
+    <div class='file-zone'>ここにアップロード</div>
  
     <div class='file-preview-area'>
         <h3>アップロードした画像</h3>
