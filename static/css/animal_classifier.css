@@ -1,0 +1,22 @@
+body{
+    display:block;
+    margin:0px;
+}
+
+.uploaded{
+    display:flex;
+    justigHfy-content:space-around;    
+    align-items:center;
+}
+
+.file-zone{
+    width:200px;
+    height:200px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+
+
+

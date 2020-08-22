@@ -1,4 +1,4 @@
-
+/*
 const uploadedPicture = document.querySelector('.uploaded');
 
 uploadedPicture.addEventListener('dragstart',() =>{
@@ -12,8 +12,7 @@ uploadedPicture.addEventListener('drag',() => {
 uploadedPicture.addEventListener('dragend',() => {
     console.log('dragend event');
 });    
-
-
+*/
 
 /*
 const fileZone = document.querySelector('.file-zone');
@@ -31,3 +30,19 @@ fileZone.addEventListener('dragleave', (event) => {
     console.log('aha')
 });
 */
+
+const file_zone=document.querySelector('.file-zone');
+
+file_zone.addEventListener('dragenter',()=>{
+    console.log('dragenter event');
+});
+
+file_zone.addEventListener('dragover',()=>{
+    console.log('dragover event');
+});
+
+file_zone.addEventListener('dragleave',()=>{
+    console.log('dragleave event');
+});
+
+
