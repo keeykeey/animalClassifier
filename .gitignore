@@ -5,6 +5,9 @@ crow
 animal.npy
 animal_aug.npy
 sample.ipynb
+memo.txt
 
 models/
 test_pictures/
+static/images/
+tempDir_sendToGCS/

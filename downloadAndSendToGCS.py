@@ -8,13 +8,11 @@ KEY = os.environ['ANIMALCLASSIFIER_KEY']
 SECRET_KEY = os.environ['ANIMALCLASSIFIER_SECRET_KEY']
 WAITTIME = 1
 
-#save directories
-animalName = sys.argv[1]
-saveDir = "./" + animalName
+searchText = sys.argv[1]
 
 flickr = FlickrAPI(KEY,SECRET_KEY,format = 'parsed-json')
 result = flickr.photos.search(
-    text = animalName,
+    text = searchText,
     per_page = 10,
     media = 'photos',
     sort = 'relevance',
@@ -24,27 +22,16 @@ result = flickr.photos.search(
 
 photos = result['photos']
 
-#save in local environment
-'''
-for i,photo in enumerate(photos['photo']):
-    url_q = photo['url_q']
-    filepath = saveDir + '/' + photo['id'] + '.jpg'
-    if os.path.exists(filepath):continue
-    urlretrieve(url_q,filepath)
-    time.sleep(WAITTIME)
-'''
-
 #send to google cloud storae
-tempDir = './tempDir_sendToGCS'
+tmpDir = './tempDir_sendToGCS'
 if not os.path.exists(tmpDir):
-    os.mkfir('tmpDir)
+    os.mkdir(tmpDir)
 
 cloudStorageBucketName = 'real_or_picture'
 for i,photo in enumerate(photos['photo']):
     url_q = photo['url_q']
-    filePathToSend = tmpDir +'/' +  photo['id'] + '.jpg'
-    urlretrieve(url_q,filepath) 
+    filePathForSending = tmpDir +'/' +  photo['id'] + '.jpg'
+    urlretrieve(url_q,filePathForSending) 
     
-    filePathAtGCS = cloudStorageBuckerName = '/' + photo['id'] + '.jpg'
-    os.system("gsutil cp {} gs://{}".format(filePathToSend,filePathAtGCS))
+    os.system("gsutil cp {} gs://{}".format(filePathForSending,cloudStorageBucketName))
     time.sleep(WAITTIME) 
