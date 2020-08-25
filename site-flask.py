@@ -25,7 +25,7 @@ def allowed_file(filename):
 def return_topPage():
     return render_template('index.html')
 
-@app.route('/contact.html',methods=['GET','POST'])
+@app.route('/contact',methods=['GET','POST'])
 def return_contactPage():
     if request.method == 'POST':
         result = request.form
@@ -33,12 +33,12 @@ def return_contactPage():
 
     return render_template('contact.html')
 
-@app.route('/result.html',methods=['GET','POST'])
+@app.route('/result',methods=['GET','POST'])
 def return_resultPage():
     return render_template('result.html')
 
 
-@app.route('/animal_classifier.html',methods=['GET','POST'])
+@app.route('/animal_classifier',methods=['GET','POST'])
 def upload_file():
     if request.method == 'POST':
         if 'file' not in request.files:
@@ -74,13 +74,20 @@ def upload_file():
 
     return render_template('animal_classifier.html')
 
+from flask import send_from_directory
+@app.route('/uploaded_file/<filename>')
+def uploaded_file(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'],filename)    
+
 @app.route('/playball',methods=['GET','POST'])
 def return_playball():
     return render_template('play_with_ball.html')
 
-from flask import send_from_directory
+@app.route('/idea',methods=['GET','POST'])
+def return_idea():
+    return 'idea page'
 
-@app.route('/uploaded_file/<filename>')
-def uploaded_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'],filename)    
+@app.route('/test_page',method=['GET','POST'])
+def return_test_page():
+    return render_template('test_page.html')
 
