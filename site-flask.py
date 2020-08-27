@@ -87,7 +87,7 @@ def return_playball():
 def return_idea():
     return 'idea page'
 
-@app.route('/test_page',method=['GET','POST'])
+@app.route('/test',methods=['GET','POST'])
 def return_test_page():
     return render_template('test_page.html')
 
