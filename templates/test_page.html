@@ -5,10 +5,12 @@
 </head>
 
 <body>
-    <form>
+    <form method=post enctype=multipart/form-data>
     <p>
-        <input type=text id='text_input' class='input'>
-        <input class = 'button' type=submit value=run>
+        <input type='hidden'>
+        <input type='text'  id='text_input1' class='input' name=testFile1>
+        <input type='text'  id='text_input2' class='input' name=testFile2>
+        <input class = 'button' type='submit' value='run the code'>
     </p>
     </form>    
  
@@ -17,9 +19,8 @@
     </p>
 
     <div class='text_out'>
-    std out
+        {{request.form['testFile2']}}
     </dev>
-
 
 </body>
 

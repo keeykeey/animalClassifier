@@ -89,5 +89,10 @@ def return_idea():
 
 @app.route('/test',methods=['GET','POST'])
 def return_test_page():
+    if request.method == 'POST':
+        testFile1 = request.form['testFile1']
+        testFile2 = request.form['testFile2']
+        #return str(testFile1 + ':' + testFile2)
+    
     return render_template('test_page.html')
 

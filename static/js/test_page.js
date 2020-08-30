@@ -1,5 +1,5 @@
 const button = document.querySelector('.button');
-button.addEventListener('click',()=>{
+button.addEventListener('mouseover',()=>{
     textFromForm = getTextFromForm();
     writeOver();
     
@@ -14,7 +14,7 @@ function writeOver(){
 }
 
 function getTextFromForm(){
-    const textFromForm = document.getElementById('text_input').value;
+    const textFromForm = document.getElementById('text_input1').value;
     return textFromForm;
 }
 
