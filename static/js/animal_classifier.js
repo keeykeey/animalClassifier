@@ -1,22 +1,26 @@
-const fileZone=document.querySelector('.file-zone');
+const fileZone1=document.querySelector('.file-zone1');
+const fileZone2=document.querySelector('.file-zone2');
 const previewArea = document.querySelector('.file-preview-area');
 const uploadByButton = document.getElementById('upload-image-by-button');
 const className = 'on';
 
+/* フォームでアップロードした画像ファイルを表示用のエリアに表示するコードを以下に書く*/
 
-fileZone.addEventListener('dragover',()=>{
+
+
+fileZone2.addEventListener('dragover',()=>{
     event.preventDefault();
-    fileZone.classList.add(className);
+    fileZone2.classList.add(className);
 });
 
-fileZone.addEventListener('dragleave',()=>{
+fileZone2.addEventListener('dragleave',()=>{
     event.preventDefault();
-    fileZone.classList.remove(className);
+    fileZone2.classList.remove(className);
 });
 
-fileZone.addEventListener('drop',(event)=>{
+fileZone2.addEventListener('drop',(event)=>{
     event.preventDefault();
-    fileZone.classList.remove(className);
+    fileZone2.classList.remove(className);
 
     const transferdFiles = event.dataTransfer.files;
     displayImages(transferdFiles);
