@@ -11,9 +11,9 @@
         <p class='top-text'>ファイルを選択又はアップロードして下さい</p>
     </header>
 
-    <form>
-        <p><input id='upload-image-by-button' type=file>
-           <input type=submit>
+    <form method=post enctype=multipart/form-data>
+        <p><input type=file name=file id='upload-image-by-button' type=file>
+           <input type=submit value='予測'>
     </form>
 
 

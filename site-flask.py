@@ -68,7 +68,7 @@ def upload_file():
             
             result = model.predict([_x])[0]
             predicted = result.argmax()
-            percentage = int(result[predicted]) * 100
+            percentage = int(result[predicted] * 100)
             
             return 'The image may be {}.  In {}%'.format(classes[predicted],str(percentage))
 
