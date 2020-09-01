@@ -5,8 +5,11 @@ const uploadByButton = document.getElementById('upload-image-by-button');
 const className = 'on';
 
 /* フォームでアップロードした画像ファイルを表示用のエリアに表示するコードを以下に書く*/
-
-
+fileZone1.addEventListener('change',(event)=>{
+    const target = event.target;
+    const transferdFiles = target.files;
+    displayImages(transferdFiles);
+});
 
 fileZone2.addEventListener('dragover',()=>{
     event.preventDefault();
