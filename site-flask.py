@@ -38,7 +38,7 @@ def return_resultPage():
     return render_template('result.html')
 
 
-@app.route('/animal_classifier',methods=['GET','POST'])
+@app.route('/animal_classifierBefore',methods=['GET','POST'])
 def upload_file():
     if request.method == 'POST':
         if 'file' not in request.files:
@@ -74,6 +74,24 @@ def upload_file():
 
     return render_template('animal_classifier.html')
 
+@app.route('/animal_classifier',methods=['GET','POST'])
+def uploadFile():
+    predictionResult = False
+#    commentFromResult = ''
+    if request.method == 'POST':
+        if 'file' not in request.files:
+            flash('no file found')
+            return redirect(request.url)
+        stream = request.files['file'].stream
+        picArr = np.asarray(bytearray(stream.read()),dtype=np.uint8)[0:2]
+        predictionResult = True
+        #return str(picArr)
+     
+        commentFromResult = 'This is a {} in {}%'.format('animal','number')
+    return render_template('animal_classifier.html',commentFromResult = commentFromResult)
+
+
+
 from flask import send_from_directory
 @app.route('/uploaded_file/<filename>')
 def uploaded_file(filename):
@@ -95,4 +113,6 @@ def return_test_page():
         #return str(testFile1 + ':' + testFile2)
     
     return render_template('test_page.html')
+
+
 

@@ -8,14 +8,19 @@
 <body>
     <header>
         <h3><a href ='/'><img class='top-img' src="static/images/robotBig.png" alt="Shin Fujito's portfolio"></a></h3>
-        <p class='top-text'>ファイルを選択又はアップロードして下さい</p>
+        <p class='top-text'>
+            {% if not predictionResult%}
+                ファイルを選択又はアップロードして下さい
+            {% else %}
+                {{commentFromResult}}
+            {% endif %}
+        </p>
     </header>
 
     <form method=post enctype=multipart/form-data>
         <p><input class='file-zone1' type=file name=file id='upload-image-by-button'>
-           <input type=submit value='予測'>
+           <input type=button value='予測する'>
     </form>
-
 
     <div class='file-zone2'>ここにアップロード</div>
  
