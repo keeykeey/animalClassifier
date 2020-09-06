@@ -68,16 +68,16 @@ def upload_file():
             
             result = model.predict([_x])[0]
             predicted = result.argmax()
-            percentage = int(result[predicted] * 100)
+            percentage = float(result[predicted]) *100 
             
-            return 'The image may be {}.  In {}%'.format(classes[predicted],str(percentage))
+            return 'The image may be {}.  In {}%'.format(classes[predicted],percentage)
 
     return render_template('animal_classifier.html')
 
 @app.route('/animal_classifier',methods=['GET','POST'])
 def uploadFile():
     predictionResult = False
-#    commentFromResult = ''
+    commentFromResult = ''
     if request.method == 'POST':
         if 'file' not in request.files:
             flash('no file found')
@@ -85,7 +85,6 @@ def uploadFile():
         stream = request.files['file'].stream
         picArr = np.asarray(bytearray(stream.read()),dtype=np.uint8)[0:2]
         predictionResult = True
-        #return str(picArr)
      
         commentFromResult = 'This is a {} in {}%'.format('animal','number')
     return render_template('animal_classifier.html',commentFromResult = commentFromResult)
