@@ -10,7 +10,9 @@
         <h3><a href ='/'><img class='top-img' src="static/images/robotBig.png" alt="Shin Fujito's portfolio"></a></h3>
         <p class='top-text'>
             {% if not predictionResult%}
-                ファイルを選択又はアップロードして下さい
+               <!-- ファイルを選択又はアップロードして下さい-->
+                {{commentFromResult}}
+                <br>再度予測したい画像をアップロードして下さい。</br>
             {% else %}
                 {{commentFromResult}}
             {% endif %}
@@ -19,7 +21,7 @@
 
     <form method=post enctype=multipart/form-data>
         <p><input class='file-zone1' type=file name=file id='upload-image-by-button'>
-           <input type=button value='予測する'>
+           <input class='submitButton' type=submit value='予測する'>
     </form>
 
     <div class='file-zone2'>ここにアップロード</div>

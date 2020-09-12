@@ -76,8 +76,8 @@ def upload_file():
 
 @app.route('/animal_classifier',methods=['GET','POST'])
 def uploadFile():
-    predictionResult = False
-    commentFromResult = ''
+    commentFromResult = '予測したい画像をアップロードして下さい'
+    file=''
     if request.method == 'POST':
         if 'file' not in request.files:
             flash('no file found')
@@ -86,8 +86,10 @@ def uploadFile():
         picArr = np.asarray(bytearray(stream.read()),dtype=np.uint8)[0:2]
         predictionResult = True
      
-        commentFromResult = 'This is a {} in {}%'.format('animal','number')
-    return render_template('animal_classifier.html',commentFromResult = commentFromResult)
+        file=request.files['file']
+        commentFromResult = '{} は{}%の確率で{}です。'.format(file.filename,'number','animal')
+
+    return render_template('animal_classifier.html',commentFromResult = commentFromResult,file=file)
 
 
 
