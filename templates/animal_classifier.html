@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang='ja'>
 <head>
     <meta charset='UTF-8'>
@@ -9,10 +10,9 @@
     <header>
         <h3><a href ='/'><img class='top-img' src="static/images/robotBig.png" alt="Shin Fujito's portfolio"></a></h3>
         <p class='top-text'>
-            {% if not predictionResult%}
-               <!-- ファイルを選択又はアップロードして下さい-->
+            {% if predictionResult%}
                 {{commentFromResult}}
-                <br>再度予測したい画像をアップロードして下さい。</br>
+                <br>再度予測したい画像をアップロードして下さい</br>
             {% else %}
                 {{commentFromResult}}
             {% endif %}

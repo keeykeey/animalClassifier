@@ -76,6 +76,7 @@ def upload_file():
 
 @app.route('/animal_classifier',methods=['GET','POST'])
 def uploadFile():
+    predictionResult=False
     commentFromResult = '予測したい画像をアップロードして下さい'
     file=''
     if request.method == 'POST':
@@ -89,7 +90,7 @@ def uploadFile():
         file=request.files['file']
         commentFromResult = '{} は{}%の確率で{}です。'.format(file.filename,'number','animal')
 
-    return render_template('animal_classifier.html',commentFromResult = commentFromResult,file=file)
+    return render_template('animal_classifier.html',predictionResult=predictionResult,commentFromResult = commentFromResult,file=file)
 
 
 
