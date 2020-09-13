@@ -1,4 +1,5 @@
 import os
+import tensorflow as tf
 from flask import Flask,request,redirect,url_for,flash
 from werkzeug.utils import secure_filename
 from flask import render_template
@@ -16,7 +17,7 @@ ALLOWED_EXTENSIONS = set(['png','jpg','gif'])
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-#app.config['SEND_FILE_MAX_AGE_DEFAULT']=0
+graph = tf.get_default_graph()#マルチスレッドで推論を２度以上回すときに、tfがグラフを共有できないと、エラーが出る。
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.',1)[1].lower() in ALLOWED_EXTENSIONS
@@ -38,8 +39,11 @@ def return_resultPage():
     return render_template('result.html')
 
 
-@app.route('/animal_classifierBefore',methods=['GET','POST'])
+@app.route('/animal_classifier',methods=['GET','POST'])
 def upload_file():
+    predictionResult=False
+    commentFromResult = '予測したい画像をアップロードして下さい'
+    
     if request.method == 'POST':
         if 'file' not in request.files:
             flash('No file found')
@@ -53,44 +57,69 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
-            #return redirect(url_for('uploaded_file',filename=filename))
             filepath = os.path.join(app.config['UPLOAD_FOLDER'],filename)
     
-            model = load_model('./models/animal_cnn_aug_Mon Jul 13 00:47:39 2020.h')
+            global graph
+            with graph.as_default():
 
-            image = Image.open(filepath)
-            image = image.convert('RGB')
-            image = image.resize((image_size,image_size))
-            data = np.asarray(image)
-            _x = []
-            _x.append(data)
-            _x = np.array(_x) 
+                model = load_model('./models/animal_cnn_aug_Mon Jul 13 00:47:39 2020.h')
+
+                image = Image.open(filepath)
+                image = image.convert('RGB')
+                image = image.resize((image_size,image_size))
+                data = np.asarray(image)
+                _x = []
+                _x.append(data)
+                _x = np.array(_x) 
             
-            result = model.predict([_x])[0]
+                result = model.predict([_x])[0]
+
             predicted = result.argmax()
-            percentage = float(result[predicted]) *100 
+            percentage = float(result[predicted]) * 100
+            animal = classes[predicted]
+
+            predictionResult = True
+
+            commentFromResult = '{} は{}%の確率で{}です。'.format(file.filename,percentage,animal)
             
-            return 'The image may be {}.  In {}%'.format(classes[predicted],percentage)
+    return render_template('animal_classifier.html',predictionResult=predictionResult,commentFromResult = commentFromResult)
 
-    return render_template('animal_classifier.html')
-
-@app.route('/animal_classifier',methods=['GET','POST'])
+@app.route('/animal_classifier_test',methods=['GET','POST'])
 def uploadFile():
     predictionResult=False
     commentFromResult = '予測したい画像をアップロードして下さい'
-    file=''
     if request.method == 'POST':
         if 'file' not in request.files:
             flash('no file found')
             return redirect(request.url)
-        stream = request.files['file'].stream
-        picArr = np.asarray(bytearray(stream.read()),dtype=np.uint8)[0:2]
-        predictionResult = True
-     
-        file=request.files['file']
-        commentFromResult = '{} は{}%の確率で{}です。'.format(file.filename,'number','animal')
 
-    return render_template('animal_classifier.html',predictionResult=predictionResult,commentFromResult = commentFromResult,file=file)
+        file=request.files['file']
+
+        if file.filename == '':
+            flash('No file found')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            stream = request.files['file'].stream
+            picArr = np.asarray(bytearray(stream.read()),dtype=np.uint8)
+            #image = Image.fromarray(picArr)
+            #image = image.resize(image_size,image_size) 
+            #data = np.assaray(image)
+            #_x = []
+            #_x.append(data)
+            #_x.np.array(_x)
+       
+            #result = model.predict([_x])[0]
+            #predicted = result.argmax()
+            #percentage = float(result[predicted]) * 100
+            #animal = classes[predicted]
+
+            predictionResult = True
+
+            #commentFromResult = '{} は{}%の確率で{}です。'.format(file.filename,percentage,'animal')
+        
+            return str(picArr[:500])
+
+    return render_template('animal_classifier.html',predictionResult=predictionResult,commentFromResult = commentFromResult)
 
 
 
