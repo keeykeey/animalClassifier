@@ -80,7 +80,8 @@ def upload_file():
 
             predictionResult = True
 
-            commentFromResult = '{} は{}%の確率で{}です。'.format(file.filename,percentage,animal)
+            #commentFromResult = '{} は{}です。'.format(file.filename,animal)
+            #commentFromResult = '{} は{}%の確率で{}です。'.format(file.filename,percentage,animal)
             
     return render_template('animal_classifier.html',predictionResult=predictionResult,commentFromResult = commentFromResult)
 
