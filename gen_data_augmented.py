@@ -29,7 +29,7 @@ for index,classLabel in enumerate(classes):
             X_test.append(data)
             Y_test.append(index)
         else:
-            for angle in range(0,45,-20,20):
+            for angle in (0,45,-20,20):
                 img_rotate = image.rotate(angle)
                 data_1 = np.asarray(img_rotate)
                 X_train.append(data_1)
