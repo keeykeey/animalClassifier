@@ -62,7 +62,7 @@ def upload_file():
             global graph
             with graph.as_default():
 
-                model = load_model('./models/animal_cnn_aug_Mon Jul 13 00:47:39 2020.h')
+                model = load_model('./models/animal_cnn_aug_Sat Sep 26 19:53:27 2020.h')
 
                 image = Image.open(filepath)
                 image = image.convert('RGB')
@@ -81,7 +81,7 @@ def upload_file():
             predictionResult = True
 
             #commentFromResult = '{} は{}です。'.format(file.filename,animal)
-            #commentFromResult = '{} は{}%の確率で{}です。'.format(file.filename,percentage,animal)
+            commentFromResult = '{} は{}%の確率で{}です。'.format(file.filename,percentage,animal)
             
     return render_template('animal_classifier.html',predictionResult=predictionResult,commentFromResult = commentFromResult)
 
