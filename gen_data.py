@@ -25,3 +25,8 @@ for index,classLabel in enumerate(classes):
         
 X = np.array(X)
 Y = np.array(Y)
+
+x_train,x_test,y_train,y_test = train_test_split(X,Y)
+xy = (x_train,x_test,y_train,y_test)
+np.save('./animal.npy',xy)
+
