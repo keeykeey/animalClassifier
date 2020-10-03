@@ -8,7 +8,8 @@ import sys,keras
 import numpy as np
 from PIL import Image
 
-classes = ['monkey','boar','crow']
+#classes = ['monkey','boar','crow']
+classes = ['猿','イノシシ','カラス']
 num_classes = len(classes)
 image_size = 50
 
